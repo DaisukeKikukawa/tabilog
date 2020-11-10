@@ -1,5 +1,5 @@
 <template>
   <div>
-    login
+    login機能完成！
   </div>
 </template>
