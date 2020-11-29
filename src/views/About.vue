@@ -21,10 +21,11 @@
 
         <div class="property2">
           <div class="image__box">
-            <img src="/images/edit2.JPG" class="image" />
+            <img src="/images/AdobeStock_259057033.jpeg" class="image" />
           </div>
           <span class="property2-text">
             旅好きの人がつながるプラットフォーム
+            <br />
             （旅人を検索することができます！）
           </span>
         </div>
@@ -38,27 +39,36 @@
         <div class="vision1">
           <span class="vision1-text">
             私たちは皆、旅が好きという共通点がありました。
+            <br />
             旅の計画を今まで、ガイドブックや旅行代理店が提供するプランで
+            <br />
             決めてきた人も多いのではないかと思いました。
+            <br />
             そこで、1人1人の旅の思い出を記録し、個性豊かなガイドブックを1人1人が作る。
+            <br />
             いわば「面白い人・体験」が集まったプラットフォームで次の旅の計画をワクワクして
-            決められるサービスを作ろうと思ってできたもの それが「Tabi
-            log」です。
+            <br />
+            決められるサービスを作ろうと思ってできたもの
+            <br />
+            それが「Tabi log」です。
           </span>
           <div class="image__box">
-            <img src="/images/edit3.JPG" class="image" />
+            <img src="/images/AdobeStock_159025204.jpeg" class="image" />
           </div>
         </div>
 
         <div class="vision2">
           <span class="vision2-text">
             私たち自身、旅をして心が動くような体験をし、
+            <br />
             これからの選択肢が広がるような経験ができました。
+            <br />
             この体験を一人でも多くの人に実感してもらいたい。
+            <br />
             旅をもっと好きになってほしい。 それが私たちの伝えたい想いです。
           </span>
           <div class="image__box">
-            <img src="/images/edit4.JPG" class="image" />
+            <img src="/images/AdobeStock_339828492.jpeg" class="image" />
           </div>
         </div>
       </div>
@@ -70,7 +80,7 @@
       <p class="profile-title">[Member]</p>
       <div class="profile-container">
         <div class="member1">
-          <div class="image__box">
+          <div class="image__member">
             <img src="/images/edit5.JPG" class="image" />
           </div>
           <span class="member1-name">Hiroshi Tsuji</span>
@@ -78,7 +88,7 @@
         </div>
 
         <div class="member2">
-          <div class="image__box">
+          <div class="image__member">
             <img src="/images/edit5.JPG" class="image" />
           </div>
           <span class="member2-name">Daisuke Kikukawa</span>
@@ -86,7 +96,7 @@
         </div>
 
         <div class="member3">
-          <div class="image__box">
+          <div class="image__member">
             <img src="/images/edit5.JPG" class="image" />
           </div>
           <span class="member3-name">Shiro Wakabayashi</span>
@@ -94,7 +104,7 @@
         </div>
 
         <div class="member4">
-          <div class="image__box">
+          <div class="image__member">
             <img src="/images/edit5.JPG" class="image" />
           </div>
           <span class="member4-name">Takahiro Orihara</span>
@@ -103,10 +113,6 @@
       </div>
     </section>
     <!-- Thire block End -->
-
-    <footer>
-      <span>Copyright © 旅人のあつまり All Rights Reserved.</span>
-    </footer>
   </div>
 </template>
 
@@ -143,16 +149,6 @@ export default {
 </script>
 
 <style scoped>
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  background-color: #ffbf00;
-  font-size: 15px;
-  color: #fff;
-}
-
 /* First block */
 #first-block {
   background-color: #f5da81;
@@ -233,7 +229,6 @@ h3 {
 /* Second block Start  */
 #second-block {
   background-color: #81f7f3;
-  align-content: space-around;
 }
 
 .vision-container {
@@ -287,10 +282,10 @@ h3 {
 /* Third block Start  */
 #third-block {
   background-color: #6bb6f8;
-  align-content: space-around;
 }
 
 .profile-title {
+  margin: 0;
   text-align: center;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -312,6 +307,11 @@ h3 {
   margin-top: 30px;
   margin-bottom: 20px;
   width: 25%;
+}
+
+.image__member {
+  height: 5rem;
+  /* flex: 1 1 5rem; */
 }
 
 .member1-name {
