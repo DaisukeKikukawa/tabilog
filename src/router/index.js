@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Top from "../views/Top.vue";
 import firebase from "firebase";
 /* 認証機能 */
 import Signup from "../components/Signup.vue";
@@ -18,6 +19,11 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home
+  },
+  {
+    path: "/top",
+    name: "Top",
+    component: Top
   },
   {
     path: "/about",
@@ -44,7 +50,7 @@ const routes = [
     path: "/signout",
     name: "signout",
     component: Signout
-  },
+  }
   // {
   //   path: "/mypage/:uid",
   //   name: "mypage",
