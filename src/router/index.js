@@ -2,14 +2,15 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Map from "../components/Map.vue";
+import Top from "../views/Top.vue";
 import firebase from "firebase";
 /* 認証機能 */
 import Signup from "../components/Signup.vue";
 import Signin from "../components/Signin.vue";
 import Signout from "../components/Signout.vue";
-import Mypage from "../components/Mypage.vue";
-/*ここまで*/
-import Edit from "../components/Edit.vue"; //マイページ編集
+// import Mypage from "../components/Mypage.vue";
+// /*ここまで*/
+// import Edit from "../components/Edit.vue"; //マイページ編集
 // import Default from "../components/Default.vue"; //デフォルト検索
 
 Vue.use(VueRouter);
@@ -19,6 +20,11 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "/top",
+    name: "Top",
+    component: Top
   },
   {
     path: "/about",
@@ -48,33 +54,33 @@ const routes = [
   {
     path: "/signout",
     name: "signout",
-    component: Signout,
-  },
-  {
-    path: "/mypage/:uid",
-    name: "mypage",
-    component: Mypage,
-    meta: { requiresAuth: true }, // ログイン認証（ログイン時のみに表示させるため）
-  },
-  /*ここまで*/
-  /*マイページ編集*/
-  {
-    path: "/edit/:uid",
-    name: "edit",
-    component: Edit,
-  },
-  /*ここまで*/
+    component: Signout
+  }
+  // {
+  //   path: "/mypage/:uid",
+  //   name: "mypage",
+  //   component: Mypage,
+  //   meta: { requiresAuth: true } // ログイン認証（ログイン時のみに表示させるため）
+  // },
+  // /*ここまで*/
+  // /*マイページ編集*/
+  // {
+  //   path: "/edit:uid",
+  //   name: "edit",
+  //   component: Edit
+  // },
+  // /*ここまで*/
   // /*デフォルト検索*/
   // {
   //   path: "/default",
   //   name: "default",
   //   component: Default,
   // },
+    /*ここまで*/
   {
     path: "*",
     redirect: "/",
   },
-  /*ここまで*/
 ];
 
 const router = new VueRouter({

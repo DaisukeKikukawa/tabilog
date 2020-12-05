@@ -1,17 +1,20 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/signup">Sign up</router-link> |
-      <router-link to="/signin">Sign in</router-link> |
-      <router-link to="/signout">Sign out</router-link> |
-      <!-- <router-link to="/default">Default</router-link> | -->
-      <button @click="toMypage">Mypage</button>
-    </div>
+    <Header />
     <router-view />
+    <Footer />
   </div>
 </template>
+<script>
+import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
+export default {
+  components: {
+    Header,
+    Footer
+  }
+};
+</script>
 
 <script>
 import { auth } from "@/firebase";
@@ -46,18 +49,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>
