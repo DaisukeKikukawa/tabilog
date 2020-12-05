@@ -7,7 +7,7 @@
     <div>
       <p v-for="user in users" :key="user.id">
         {{ users.picture }}<br />
-        ユーザー名：{{ users.displayname }}
+        ユーザー名：{{ users.displayName }}
       </p>
     </div>
   </div>
@@ -21,23 +21,23 @@ export default {
   data() {
     return {
       searchTerm: "",
-      users: []
+      users: [],
     };
   },
   metohds: {
     searchUserAccount() {
       db.collection("users")
-        .where("displayname", "==", this.searchTerm)
+        .where("displayName", "==", this.searchTerm)
         .get()
-        .then(snapshot => {
-          snapshot.docs.forEach(doc => {
+        .then((snapshot) => {
+          snapshot.docs.forEach((doc) => {
             this.users.push({
               id: doc.id,
-              ...doc.data()
+              ...doc.data(),
             });
           });
         });
-    }
-  }
+    },
+  },
 };
 </script>

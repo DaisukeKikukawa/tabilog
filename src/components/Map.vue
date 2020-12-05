@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2 class="top">Create Your Article</h2>
+    <h2 class="top">位置検索</h2>
     <div class="content">
       <!-- Google Mapから位置情報追加 -->
       <form id="search-form" @submit.prevent>
@@ -21,7 +21,7 @@
       <div id="map">
         <!-- ここに地図が表示される -->
       </div>
-​
+
       <div>
         <button class="btn submit-btn" @click="publish">
           Submit
@@ -30,9 +30,8 @@
     </div>
   </div>
 </template>
-​
 <script>
-import firebase from "firebase";
+// import firebase from "firebase";
 import { auth } from "@/firebase";
 import { db } from "@/firebase";
 // import GoogleMap from "../components/GoogleMap";
@@ -48,22 +47,22 @@ export default {
       marker: [],
       currentlatlng: {
         lat: 35.6809591,
-        lng: 139.7673068
+        lng: 139.7673068,
       },
-      createUser: {}
+      createUser: {},
     };
   },
   // components: {
   //   GoogleMap
   // },
   created() {
-    auth.onAuthStateChanged(user => {
+    auth.onAuthStateChanged((user) => {
       this.currentUser = user;
     });
   },
   firestore() {
     return {
-      createUser: db.collection("users").doc(this.$route.params.uid)
+      createUser: db.collection("users").doc(this.$route.params.uid),
     };
   },
   methods: {
@@ -71,7 +70,7 @@ export default {
       this.geocoder = new this.google.maps.Geocoder();
       this.map = new this.google.maps.Map(document.getElementById("map"), {
         center: this.currentlatlng,
-        zoom: 15
+        zoom: 15,
       });
     },
     // 検索、マーカーの設置
@@ -91,9 +90,9 @@ export default {
             map: this.map,
             position: {
               lat: this.currentlatlng.lat,
-              lng: this.currentlatlng.lng
+              lng: this.currentlatlng.lng,
             },
-            animation: this.google.maps.Animation.DROP
+            animation: this.google.maps.Animation.DROP,
           });
 
           // googleMapの中心座標をずらす
@@ -106,64 +105,56 @@ export default {
     publish() {
       const ref = db.collection("posts").doc();
       const date = this.$date(new Date());
-      ref
-        .set({
-          createUsername: this.createUser.displayName,
-          createdAt: date,
-          uid: this.currentUser.uid,
-          id: ref.id,
-          lat: this.currentlatlng.lat,
-          lng: this.currentlatlng.lng
-        })
-        .then(() => {
-          this.$router.push("/post/" + this.currentUser.uid);
-          alert("The post got published!");
-        });
-    }
+      ref.set({
+        createUsername: this.createUser.displayName,
+        createdAt: date,
+        uid: this.currentUser.uid,
+        id: ref.id,
+        lat: this.currentlatlng.lat,
+        lng: this.currentlatlng.lng,
+      });
+      // .then(() => {
+      //   this.$router.push("/post/" + this.currentUser.uid);
+      //   alert("The post got published!");
+      // });
+    },
   },
   async mounted() {
     this.google = await GoogleMapsApiLoader({
-      apiKey: "AIzaSyCgHlOo-1ywOyvD5AIjjmuSQg5RFtzTlXw"
+      apiKey: "AIzaSyCgHlOo-1ywOyvD5AIjjmuSQg5RFtzTlXw",
     });
     this.initMap();
-  }
+  },
 };
 </script>
-​
 <style scoped>
 body {
   margin: 0;
   padding: 0;
 }
-​
 .container {
   width: 60%;
   border: 3px solid black;
   margin: 30px auto;
 }
-​
 .top {
   font-size: 36px;
   text-decoration: underline;
 }
-​
 .content {
   position: flex;
   justify-content: flex-start;
   text-align: left;
   padding: 0px 150px;
 }
-​
 #search-form {
   margin: 15px 0;
 }
-​
 #inputAddress {
   width: 300px;
   height: 30px;
   font-size: 18px;
 }
-​
 #search-button {
   height: 30px;
   background: none;
@@ -172,17 +163,14 @@ body {
   font-size: 20px;
   cursor: pointer;
 }
-​
 #search-button:hover {
   color: #7fbfff;
 }
-​
 #map {
   height: 450px;
   width: 600px;
   margin: 0 auto;
 }
-​
 .btn {
   display: inline-block;
   background-color: white;
@@ -196,7 +184,6 @@ body {
   color: black;
   text-decoration: none !important;
 }
-​
 .submit-btn {
   box-shadow: 2px 2px 0 0 black;
   border-radius: 7px;

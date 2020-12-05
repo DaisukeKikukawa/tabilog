@@ -36,16 +36,18 @@ export default {
   },
   methods: {
     userSignIn() {
-      auth.signInWithEmailAndPassword(this.email, this.password).then((result) => {
-        console.log(result)
-        alert("ログイン成功!");
-        this.$router.push({
-          name: "mypage",
-          params: {
-            uid: result.user.uid
-          }
+      auth
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(result => {
+          console.log(result);
+          alert("ログイン成功!");
+          this.$router.push({
+            name: "mypage",
+            params: {
+              uid: result.user.uid
+            }
+          });
         });
-      });
     }
   }
 };

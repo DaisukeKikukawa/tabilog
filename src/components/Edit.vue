@@ -4,11 +4,11 @@
     <div>
       <h3>プロフィール画像</h3>
       <upload v-model="picture" />
-      <img :src="picture" />
+      <img :src="picture" width="500" />
     </div>
     <div>
       <h3>ユーザー名</h3>
-      <input type="text" placeholder="User Name" v-model="displayname" />
+      <input type="text" placeholder="User Name" v-model="displayName" />
     </div>
     <div>
       <h3>年齢</h3>
@@ -26,20 +26,20 @@
     <div>
       <h3>自己紹介</h3>
       <textarea
-        v-model="selfintroduction"
-        placeholder="Self-introduction"
+        v-model="selfIntroduction"
+        placeholder="Self-Introduction"
       ></textarea>
     </div>
     <div>
       <h3>Twitter URL</h3>
-      <input type="text" placeholder="Twitter URL" v-model="twitterurl" />
+      <input type="text" placeholder="Twitter URL" v-model="twitterUrl" />
     </div>
     <div>
       <h3>Instagram URL</h3>
-      <input type="text" placeholder="Instagram URL" v-model="instgramurl" />
+      <input type="text" placeholder="Instagram URL" v-model="instagramUrl" />
     </div>
     <br />
-    <button @click="addUserAccount()">アカウント情報を追加する</button>
+    <button @click="addUserAccount">アカウント情報を追加する</button>
   </div>
 </template>
 
@@ -51,23 +51,24 @@ import Upload from "../components/Upload.vue";
 export default {
   name: "edit",
   components: {
-    Upload
+    Upload,
   },
   data() {
     return {
       picture: null,
-      displayname: "",
+      displayName: "",
       age: "",
       gender: "",
-      selfintroduction: "",
-      twitterurl: "",
-      instgramurl: "",
+      selfIntroduction: "",
+      twitterUrl: "",
+      instagramUrl: "",
       users: [],
-      currentUser: null
+      currentUser: null,
+      createUser: null,
     };
   },
   created() {
-    auth().onAuthStateChanged(user => {
+    auth().onAuthStateChanged((user) => {
       if (user) {
         this.currentUser = user;
       } else {
@@ -78,24 +79,27 @@ export default {
   methods: {
     addUserAccount() {
       db.collection("users")
-        .doc(this.currentUser.uid)
-        .add({
+        .doc(this.$route.params.uid)
+        .update({
           picture: this.picture,
-          displayname: this.displayname,
+          displayName: this.displayName,
           isComplete: false,
           age: this.age,
           gender: this.gender,
-          selfintroduction: this.selfintroduction,
-          twitterurl: this.twitterurl,
-          instgramurl: this.instgramurl
+          selfIntroduction: this.selfIntroduction,
+          twitterUrl: this.twitterUrl,
+          instagramUrl: this.instagramUrl,
         })
         .then(() => {
           console.log("users");
           alert("編集に成功!");
-          this.$router.push("/mypage");
+          this.$router.push({
+            name: "mypage",
+            params: { uid: this.$route.params.uid },
+          });
         });
-    }
-  }
+    },
+  },
 };
 </script>
 

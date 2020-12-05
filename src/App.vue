@@ -6,12 +6,38 @@
       <router-link to="/signup">Sign up</router-link> |
       <router-link to="/signin">Sign in</router-link> |
       <router-link to="/signout">Sign out</router-link> |
-      <router-link to="/default">Default</router-link> |
-      <router-link to="/mypage">Mypage</router-link>
+      <!-- <router-link to="/default">Default</router-link> | -->
+      <button @click="toMypage">Mypage</button>
     </div>
     <router-view />
   </div>
 </template>
+
+<script>
+import { auth } from "@/firebase";
+
+export default {
+  name: "app",
+  data() {
+    return {
+      currentUser: {},
+    };
+  },
+  created() {
+    auth.onAuthStateChanged((user) => {
+      this.currentUser = user;
+    });
+  },
+  methods: {
+    toMypage() {
+      this.$router.push({
+        name: "mypage",
+        params: { uid: this.currentUser.uid },
+      });
+    },
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
