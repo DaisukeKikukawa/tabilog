@@ -16,6 +16,32 @@ export default {
 };
 </script>
 
+<script>
+import { auth } from "@/firebase";
+
+export default {
+  name: "app",
+  data() {
+    return {
+      currentUser: {},
+    };
+  },
+  created() {
+    auth.onAuthStateChanged((user) => {
+      this.currentUser = user;
+    });
+  },
+  methods: {
+    toMypage() {
+      this.$router.push({
+        name: "mypage",
+        params: { uid: this.currentUser.uid },
+      });
+    },
+  },
+};
+</script>
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
