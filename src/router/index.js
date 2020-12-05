@@ -1,6 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
 import Map from "../components/Map.vue";
 import Top from "../views/Top.vue";
 import firebase from "firebase";
@@ -18,11 +17,6 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
-  },
-  {
-    path: "/top",
     name: "Top",
     component: Top
   },
@@ -33,29 +27,29 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+      import(/* webpackChunkName: "about" */ "../views/About.vue")
   },
   {
     path: "/map",
     name: "Map",
-    component: Map,
+    component: Map
   },
   /* 認証機能 */
   {
     path: "/signup",
     name: "signup",
-    component: Signup,
+    component: Signup
   },
   {
     path: "/signin",
     name: "signin",
-    component: Signin,
+    component: Signin
   },
   {
     path: "/signout",
     name: "signout",
     component: Signout
-  }
+  },
   // {
   //   path: "/mypage/:uid",
   //   name: "mypage",
@@ -76,22 +70,22 @@ const routes = [
   //   name: "default",
   //   component: Default,
   // },
-    /*ここまで*/
+  /*ここまで*/
   {
     path: "*",
-    redirect: "/",
-  },
+    redirect: "/"
+  }
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes,
+  routes
 });
 
 /*ログイン時のみ閲覧可能機能 (ログイン状態かを確認する処理)*/
 router.beforeEach(async (to, from, next) => {
-  const requiresAuth = to.matched.some((recode) => recode.meta.requiresAuth);
+  const requiresAuth = to.matched.some(recode => recode.meta.requiresAuth);
   if (requiresAuth && !(await firebase.getCurrentUser())) {
     next({ path: "/signin", query: { redirect: to.fullPath } });
   } else {

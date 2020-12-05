@@ -1,15 +1,14 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link>
-    <router-link to="/Top">Top</router-link>
+    <router-link to="/">Top</router-link>
     <router-link to="/about">About</router-link>
     <!-- ログイン状態で表示 -->
-    <div v-if="currentUser">
+    <div v-if="currentUser" class="box__1">
       <router-link to="/mypage" class="mypage_link">Mypage</router-link>
       <router-link to="/signout" class="signout_link">Sign out</router-link>
     </div>
     <!-- ログイン前の状態で表示 -->
-    <div v-else>
+    <div v-else class="box__1">
       <router-link to="/signin" class="signin_link">Sign in</router-link>
       <router-link to="/signup" class="signup_link">Sign up</router-link>
     </div>
@@ -61,20 +60,25 @@ export default {
   }
 }
 
+.box__1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 10rem;
+}
+//等間隔でなくていいけど、それに近づけるんならflexboxで操作しちゃったほうがいいよ;
 .mypage_link {
-  padding: 0 2rem;
-  border: 0 2rem;
+  padding-right: 50px;
 }
 
-.signout_link {
-  padding: 0 2rem;
+// .signout_link {
+//   padding: 0 10rem;
+// }
+
+.signin_link {
+  padding-right: 50px;
 }
 
-.siginin_link {
-  padding: 0 2rem;
-}
-
-.signup_link {
-  padding: 0 2rem;
-}
+// .signup_link {
+//   padding: 0 10rem;
+// }
 </style>
