@@ -92,19 +92,25 @@ export default {
 </script>
 
 <style scoped>
+/* PCの場合 */
+
 /* First block Start*/
 #first-block {
-  position: relative;
+  /* position: relative; */
   background-image: url("/images/AdobeStock_337859550.jpeg");
   background-size: cover;
   background-position-y: center;
+  width: 100%;
   height: 1200px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
 
 .first-sentence {
-  position: absolute;
+  /* position: absolute;
   top: 10%;
-  left: 50%;
+  left: 50%; */
   color: #ffffff;
   text-align: center;
   font-size: 60px;
@@ -118,17 +124,21 @@ export default {
 
 /* Second block Start*/
 #second-block {
-  position: relative;
+  /* position: relative; */
   background-image: url("/images/AdobeStock_215787551.jpeg");
   background-size: cover;
   background-position-y: bottom;
+  width: 100%;
   height: 1200px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .second-sentence {
-  position: absolute;
+  /* position: absolute;
   top: 10%;
-  left: 10%;
+  left: 10%; */
   color: #606060;
   text-align: center;
   font-size: 60px;
@@ -141,17 +151,21 @@ export default {
 
 /* Third block Start*/
 #third-block {
-  position: relative;
+  /* position: relative; */
   background-image: url("/images/AdobeStock_339044153.jpeg");
   background-size: cover;
   background-position-y: center;
+  width: 100%;
   height: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .third-sentence {
-  position: absolute;
+  /* position: absolute;
   top: 10%;
-  left: 10%;
+  left: 10%; */
   color: #606060;
   text-align: center;
   font-size: 60px;
@@ -164,17 +178,22 @@ export default {
 
 /* Fourth block Start*/
 #fourth-block {
-  position: relative;
+  /* position: relative; */
   background-image: url("/images/AdobeStock_141701394.jpeg");
   background-size: cover;
   background-position-y: center;
+  width: 100%;
   height: 1200px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
 }
 
 .fourth-sentence {
-  position: absolute;
+  /* position: absolute;
   top: 5%;
-  left: 41%;
+  left: 41%; */
   color: #606060;
   text-align: left;
   font-size: 50px;
@@ -185,9 +204,9 @@ export default {
 }
 
 .image__box {
-  position: absolute;
+  /* position: absolute;
   top: 28%;
-  left: 65%;
+  left: 65%; */
   height: 20rem;
   transform: skew(-1deg, 3deg);
   /* flex: 1 1 5rem; */
@@ -205,13 +224,18 @@ export default {
   background-image: url("/images/AdobeStock_341153617.jpeg");
   background-size: cover;
   background-position-y: center;
+  width: 100%;
   height: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .fifth-sentence1 {
-  position: absolute;
+  /* position: absolute;
   top: 0;
-  left: 42%;
+  left: 42%; */
   color: #ffffff;
   text-align: center;
   font-size: 60px;
@@ -222,10 +246,10 @@ export default {
 }
 
 .fifth-sentence2 {
-  position: absolute;
+  /* position: absolute;
   top: 40%;
-  left: 45%;
-  color: #0431b4;
+  left: 45%; */
+  color: #ffbf00;
   text-align: center;
   font-size: 60px;
   font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
@@ -235,9 +259,9 @@ export default {
 }
 
 .fifth-sentence3 {
-  position: absolute;
+  /* position: absolute;
   top: 45%;
-  left: 42%;
+  left: 42%; */
   color: #0431b4;
   text-align: center;
   font-size: 30px;
@@ -253,4 +277,356 @@ export default {
   transform: translateY(0);
 }
 /* Fifth block End*/
+
+/* タブレットの場合 */
+/* @media (max-width: 1000px) { */
+/* First block Start*/
+/* #first-block {
+    position: relative;
+    background-image: url("/images/AdobeStock_337859550.jpeg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 1000px;
+  }
+
+  .first-sentence {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    color: #ffffff;
+    text-align: center;
+    font-size: 30px;
+    font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
+      "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "Osaka", sans-serif;
+    opacity: 0;
+    transform: translateY(50px);
+  } */
+
+/* First block End*/
+
+/* Second block Start*/
+/* #second-block {
+    position: relative;
+    background-image: url("/images/AdobeStock_215787551.jpeg");
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+    height: 1000px;
+  }
+
+  .second-sentence {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    color: #606060;
+    text-align: center;
+    font-size: 30px;
+    font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
+      "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "Osaka", sans-serif;
+    opacity: 0;
+    transform: translateY(50px);
+  } */
+/* Second block End*/
+
+/* Third block Start*/
+/* #third-block {
+    position: relative;
+    background-image: url("/images/AdobeStock_339044153.jpeg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 1000px;
+  }
+
+  .third-sentence {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    color: #606060;
+    text-align: center;
+    font-size: 30px;
+    font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
+      "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "Osaka", sans-serif;
+    opacity: 0;
+    transform: translateY(50px);
+  } */
+/* Third block End*/
+
+/* Fourth block Start*/
+/* #fourth-block {
+    position: relative;
+    background-image: url("/images/AdobeStock_141701394.jpeg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 600px;
+  }
+
+  .fourth-sentence {
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    color: #606060;
+    text-align: left;
+    font-size: 20px;
+    font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
+      "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "Osaka", sans-serif;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  .image__box {
+    position: absolute;
+    top: 30%;
+    left: 70%;
+    height: 8rem;
+    transform: skew(-1deg, 3deg); */
+/* flex: 1 1 5rem; */
+/* } */
+
+/* .image {
+    object-fit: contain;
+    height: 100%;
+  } */
+/* Fourth block End*/
+
+/* Fifth block Start */
+/* #fifth-block {
+    position: relative;
+    background-image: url("/images/AdobeStock_341153617.jpeg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 1000px;
+  }
+
+  .fifth-sentence1 {
+    position: absolute;
+    top: 0;
+    left: 42%;
+    color: #ffffff;
+    text-align: center;
+    font-size: 30px;
+    font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
+      "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "Osaka", sans-serif;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  .fifth-sentence2 {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    color: #0431b4;
+    text-align: center;
+    font-size: 50px;
+    font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
+      "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "Osaka", sans-serif;
+    opacity: 0;
+    transform: translateY(50px);
+  } */
+
+/* .fifth-sentence3 {
+    position: absolute;
+    top: 45%;
+    left: 30%;
+    color: #0431b4;
+    text-align: center;
+    font-size: 30px;
+    font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
+      "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "Osaka", sans-serif;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  .show {
+    opacity: 1;
+    transition-duration: 1000ms;
+    transform: translateY(0);
+  } */
+/* Fifth block End*/
+/* } */
+
+/* スマートフォンの場合 */
+@media (max-width: 670px) {
+  /* First block Start*/
+  #first-block {
+    background-image: url("/images/AdobeStock_337859550.jpeg");
+    background-size: cover;
+    background-position-y: center;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+
+  .first-sentence {
+    /* position: absolute;
+    top: 10%;
+    left: 30%; */
+    color: #ffffff;
+    text-align: center;
+    font-size: 15px;
+    font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
+      "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "Osaka", sans-serif;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  /* First block End*/
+
+  /* Second block Start*/
+  #second-block {
+    background-image: url("/images/AdobeStock_215787551.jpeg");
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .second-sentence {
+    /* position: absolute;
+    top: 10%;
+    left: 10%; */
+    color: #606060;
+    text-align: left;
+    font-size: 15px;
+    font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
+      "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "Osaka", sans-serif;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  /* Second block End*/
+
+  /* Third block Start*/
+  #third-block {
+    background-image: url("/images/AdobeStock_339044153.jpeg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .third-sentence {
+    /* position: absolute;
+    top: 10%;
+    left: 0%; */
+    color: #606060;
+    text-align: center;
+    font-size: 12px;
+    font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
+      "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "Osaka", sans-serif;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  /* Third block End*/
+
+  /* Fourth block Start*/
+  #fourth-block {
+    /* position: relative; */
+    background-image: url("/images/AdobeStock_141701394.jpeg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .fourth-sentence {
+    /* position: absolute;
+    top: 10%;
+    left: 41%; */
+    color: #606060;
+    text-align: left;
+    font-size: 10px;
+    font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
+      "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "Osaka", sans-serif;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  .image__box {
+    /* position: absolute;
+    top: 33%;
+    left: 62%; */
+    height: 3.5rem;
+    transform: skew(-1deg, 3deg);
+    /* flex: 1 1 5rem; */
+  }
+
+  .image {
+    object-fit: contain;
+    height: 100%;
+  }
+  /* Fourth block End*/
+
+  /* Fifth block Start */
+  #fifth-block {
+    /* position: relative; */
+    background-image: url("/images/AdobeStock_341153617.jpeg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .fifth-sentence1 {
+    /* position: absolute;
+    top: 0;
+    left: 35%; */
+    color: #ffffff;
+    text-align: center;
+    font-size: 15px;
+    font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
+      "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "Osaka", sans-serif;
+
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  .fifth-sentence2 {
+    /* position: absolute;
+    top: 40%;
+    left: 35%; */
+    color: #ffbf00;
+    text-align: center;
+    font-size: 25px;
+    font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
+      "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "Osaka", sans-serif;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  .fifth-sentence3 {
+    color: #0431b4;
+    text-align: left;
+    font-size: 5px;
+    font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
+      "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "Osaka", sans-serif;
+    padding: 10px;
+    /* opacity: 0;
+    transform: translateY(50px); */
+  }
+
+  .show {
+    opacity: 1;
+    transition-duration: 1000ms;
+    transform: translateY(0);
+  }
+  /* Fifth block End*/
+}
 </style>

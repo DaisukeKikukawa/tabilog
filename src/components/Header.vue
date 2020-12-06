@@ -3,16 +3,16 @@
     <router-link to="/">Top</router-link>
     <router-link to="/about">About</router-link>
     <!-- ログイン状態で表示 -->
-    <div v-if="currentUser" class="box__1">
+    <div v-if="currentUser">
       <router-link to="/mypage" class="mypage_link">Mypage</router-link>
       <router-link to="/signout" class="signout_link">Sign out</router-link>
     </div>
     <!-- ログイン前の状態で表示 -->
-    <div v-else class="box__1">
+    <div v-else>
       <router-link to="/signin" class="signin_link">Sign in</router-link>
       <router-link to="/signup" class="signup_link">Sign up</router-link>
     </div>
-    <router-link to="/default">Default</router-link>
+    <!-- <router-link to="/default">Default</router-link> -->
   </div>
 </template>
 
@@ -60,25 +60,42 @@ export default {
   }
 }
 
-.box__1 {
-  display: flex;
-  justify-content: space-between;
-  padding: 10rem;
-}
-//等間隔でなくていいけど、それに近づけるんならflexboxで操作しちゃったほうがいいよ;
 .mypage_link {
-  padding-right: 50px;
+  padding-right: 10rem;
 }
-
-// .signout_link {
-//   padding: 0 10rem;
-// }
 
 .signin_link {
-  padding-right: 50px;
+  padding-right: 2.5rem;
 }
 
-// .signup_link {
-//   padding: 0 10rem;
-// }
+@media (max-width: 670px) {
+  #nav {
+    background-color: #a4a4a4;
+    height: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      &:hover {
+        color: #f00;
+      }
+      &.router-link-exact-active {
+        color: #42b983;
+      }
+    }
+  }
+
+  .mypage_link {
+    padding-right: 1rem;
+  }
+
+  .signin_link {
+    padding-right: 1rem;
+  }
+}
 </style>
