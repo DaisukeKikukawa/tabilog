@@ -186,7 +186,7 @@ export default {
   height: 1200px;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
 }
 
