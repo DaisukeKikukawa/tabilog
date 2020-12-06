@@ -1,8 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
 import Create from '../views/Create.vue';
 import Article from "../views/Article.vue"
+import Map from "../components/Map.vue";
+import Top from "../views/Top.vue";
 import firebase from "firebase";
 /* 認証機能 */
 import Signup from "../components/Signup.vue";
@@ -18,8 +19,8 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home
+    name: "Top",
+    component: Top
   },
   {
     path: "/about",
@@ -39,6 +40,11 @@ const routes = [
     path: '/article',
     name: 'Article',
     component: Article
+  },
+  {
+    path: "/map",
+    name: "Map",
+    component: Map
   },
   /* 認証機能 */
   {
@@ -62,21 +68,25 @@ const routes = [
   //   component: Mypage,
   //   meta: { requiresAuth: true } // ログイン認証（ログイン時のみに表示させるため）
   // },
-  /*ここまで*/
-  /*マイページ編集*/
+  // /*ここまで*/
+  // /*マイページ編集*/
   // {
-  //   path: "/edit",
+  //   path: "/edit:uid",
   //   name: "edit",
   //   component: Edit
   // },
-  /*ここまで*/
-  /*デフォルト検索*/
+  // /*ここまで*/
+  // /*デフォルト検索*/
   // {
   //   path: "/default",
   //   name: "default",
-  //   component: Default
-  // }
+  //   component: Default,
+  // },
   /*ここまで*/
+  {
+    path: "*",
+    redirect: "/"
+  }
 ];
 
 const router = new VueRouter({

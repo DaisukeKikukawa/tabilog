@@ -7,7 +7,7 @@
     </div>
     <div>
       <h3>Password</h3>
-      <input type="text" placeholder="Password" v-model="password" />
+      <input type="password" placeholder="Password" v-model="password" />
     </div>
     <button @click="createUserAccount">Sign UP!!</button>
   </div>
@@ -43,12 +43,16 @@ export default {
         .then(result => {
           this.user = result.user;
           db.collection("users")
-            .add({
+            .doc(this.user.uid)
+            .set({
               email: this.email
             })
             .then(() => {
               alert("Create Account");
-              this.$router.push("/mypage");
+              this.$router.push({
+                name: "mypage",
+                params: { uid: this.currentUser.uid }
+              });
             });
         })
         .catch(error => {

@@ -3,34 +3,7 @@ import "@/firebase";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import "./firebase.js";
-import './assets/ css/tailwind.css'
-
-import { library } from '@fortawesome/fontawesome-svg-core'
-import {
-  faUser,
-  faSignOutAlt,
-  faEllipsisV,
-  faCoffee,
-  faAd,
-  faBars,
-} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
-library.add(
-  faUser,
-  faSignOutAlt,
-  faEllipsisV,
-  faCoffee,
-  faAd,
-  faBars,
-)
-
-
-
-Vue.component('fa', FontAwesomeIcon)
-
-
+// import * as VueGoogleMaps from "vue2-google-maps"; //GoogleMapAPI
 
 Vue.config.productionTip = false;
 
@@ -39,3 +12,11 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount("#app");
+
+/* GoogleMap機能 
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: "AIzaSyCgHlOo-1ywOyvD5AIjjmuSQg5RFtzTlXw",
+    libraries: "places"
+  }
+}); */

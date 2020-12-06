@@ -7,7 +7,7 @@
     </div>
     <div>
       <h3>Password</h3>
-      <input type="text" placeholder="Password" v-model="password" />
+      <input type="password" placeholder="Password" v-model="password" />
     </div>
     <button @click="userSignIn">Sign in Now!!</button>
   </div>
@@ -36,16 +36,18 @@ export default {
   },
   methods: {
     userSignIn() {
-      auth.signInWithEmailAndPassword(this.email, this.password).then((result) => {
-        console.log(result)
-        alert("ログイン成功!");
-        this.$router.push({
-          name: "mypage",
-          params: {
-            uid: result.user.uid
-          }
+      auth
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(result => {
+          console.log(result);
+          alert("ログイン成功!");
+          this.$router.push({
+            name: "mypage",
+            params: {
+              uid: result.user.uid
+            }
+          });
         });
-      });
     }
   }
 };

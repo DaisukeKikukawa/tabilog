@@ -1,63 +1,103 @@
 <template>
-  <header class="header">
-    <!-- <router-link to="/"> -->
-
-      <div>
-        <h1 class="header-logo">Tabilog</h1>
-      </div>
-    <!-- </router-link> -->
-
-    <div class="btns">
-      <button class="icon">
-        <fa icon="user" />
-      </button>
-      <button class="icon">
-        <fa icon="coffee" />
-      </button>
-      <button class="icon">
-        <fa icon="ad" />
-      </button>
-      <button class="icon">
-        <fa icon="bars" />
-      </button>
+  <div id="nav">
+    <router-link to="/">Top</router-link>
+    <router-link to="/about">About</router-link>
+    <router-link to="/create">Create</router-link>
+    <router-link to="/article">Article</router-link>
+    <!-- ログイン状態で表示 -->
+    <div v-if="currentUser">
+      <router-link to="/mypage" class="mypage_link">Mypage</router-link>
+      <router-link to="/signout" class="signout_link">Sign out</router-link>
     </div>
-
-    <router-link to="/create">
-          <button 
-            class="mt-2 mr-5 focus:outline-none"
-          >Tabilogを書く</button>
-        </router-link>
-    
-
-  </header>
-  
+    <!-- ログイン前の状態で表示 -->
+    <div v-else>
+      <router-link to="/signin" class="signin_link">Sign in</router-link>
+      <router-link to="/signup" class="signup_link">Sign up</router-link>
+    </div>
+    <!-- <router-link to="/default">Default</router-link> -->
+  </div>
 </template>
 
 <script>
+import { auth } from "@/firebase";
+
 export default {
-  
-}
+  data() {
+    return {
+      currentUser: null
+    };
+  },
+  created() {
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        this.currentUser = user;
+      } else {
+        this.currentUser = null;
+      }
+    });
+  }
+};
 </script>
 
-<style>
-
-.header {
+<style lang="scss" scoped>
+#nav {
+  background-color: #a4a4a4;
+  height: 2.5rem;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  background-color: antiquewhite;
+  align-items: center;
+  padding: 0 2rem;
+
+  a {
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    &:hover {
+      color: #f00;
+    }
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
 }
 
-h1 {
-  margin: 0;
-  padding: 0;
+.mypage_link {
+  padding-right: 10rem;
 }
-  .header-logo {
-    color: red;
-    font-size: 80px;
+
+.signin_link {
+  padding-right: 2.5rem;
+}
+
+@media (max-width: 670px) {
+  #nav {
+    background-color: #a4a4a4;
+    height: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      &:hover {
+        color: #f00;
+      }
+      &.router-link-exact-active {
+        color: #42b983;
+      }
+    }
   }
 
-  .icon {
-    font-size: 50px;
+  .mypage_link {
+    padding-right: 1rem;
   }
 
+  .signin_link {
+    padding-right: 1rem;
+  }
+}
 </style>
