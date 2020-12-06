@@ -20,4 +20,16 @@ footer {
   font-size: 15px;
   color: #fff;
 }
+
+@media (max-width: 670px) {
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    background-color: #ffbf00;
+    font-size: 10px;
+    color: #fff;
+  }
+}
 </style>

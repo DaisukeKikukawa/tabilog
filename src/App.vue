@@ -5,29 +5,25 @@
     <Footer />
   </div>
 </template>
+
 <script>
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+import { auth } from "@/firebase";
+
 export default {
   components: {
     Header,
     Footer
-  }
-};
-</script>
-
-<script>
-import { auth } from "@/firebase";
-
-export default {
+  },
   name: "app",
   data() {
     return {
-      currentUser: {},
+      currentUser: {}
     };
   },
   created() {
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged(user => {
       this.currentUser = user;
     });
   },
@@ -35,10 +31,10 @@ export default {
     toMypage() {
       this.$router.push({
         name: "mypage",
-        params: { uid: this.currentUser.uid },
+        params: { uid: this.currentUser.uid }
       });
-    },
-  },
+    }
+  }
 };
 </script>
 

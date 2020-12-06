@@ -1,9 +1,7 @@
 <template>
-  /* Map検索用フォーム */
-  <router-link tag="button" to="/map">Map</router-link>
-  <router-view />
-  /* ここまで */
   <div>
+    <router-link tag="button" to="/map">Map</router-link>
+    <router-view />
     <!-- First block Start -->
     <section id="first-block">
       <div class="title-container">

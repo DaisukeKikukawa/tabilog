@@ -7,7 +7,7 @@
     </div>
     <div>
       <h3>Password</h3>
-      <input type="text" placeholder="Password" v-model="password" />
+      <input type="password" placeholder="Password" v-model="password" />
     </div>
     <button @click="userSignIn">Sign in Now!!</button>
   </div>

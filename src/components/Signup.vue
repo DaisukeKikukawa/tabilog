@@ -7,7 +7,7 @@
     </div>
     <div>
       <h3>Password</h3>
-      <input type="text" placeholder="Password" v-model="password" />
+      <input type="password" placeholder="Password" v-model="password" />
     </div>
     <button @click="createUserAccount">Sign UP!!</button>
   </div>
@@ -24,11 +24,11 @@ export default {
       email: "",
       password: "",
       users: [],
-      currentUser: null,
+      currentUser: null
     };
   },
   created() {
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged(user => {
       if (user) {
         this.currentUser = user;
       } else {
@@ -40,26 +40,26 @@ export default {
     createUserAccount() {
       auth
         .createUserWithEmailAndPassword(this.email, this.password)
-        .then((result) => {
+        .then(result => {
           this.user = result.user;
           db.collection("users")
             .doc(this.user.uid)
             .set({
-              email: this.email,
+              email: this.email
             })
             .then(() => {
               alert("Create Account");
               this.$router.push({
                 name: "mypage",
-                params: { uid: this.currentUser.uid },
+                params: { uid: this.currentUser.uid }
               });
             });
         })
-        .catch((error) => {
+        .catch(error => {
           alert("Error!", error.message);
           console.error("Account Regeister Error", error.message);
         });
-    },
-  },
+    }
+  }
 };
 </script>
