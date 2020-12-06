@@ -1,10 +1,12 @@
-import firebase from "firebase"
+import firebase from "firebase";
+import "firebase/firestore";
+import "firebase/auth";
 
-
-const Config = {
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
   apiKey: "AIzaSyBplEPVFbF-sO-8tdREEOoyDL-eBksICFQ",
-  authDomain: "tabilog-75fd9.app.com",
-  databaseURL: "https://tabilog-75fd9.io.com",
+  authDomain: "tabilog-75fd9.firebaseapp.com",
+  databaseURL: "https://tabilog-75fd9.firebaseio.com",
   projectId: "tabilog-75fd9",
   storageBucket: "tabilog-75fd9.appspot.com",
   messagingSenderId: "355852665085",
@@ -12,10 +14,18 @@ const Config = {
   measurementId: "G-FY4K8K5MGB"
 };
 
+/*ログイン時のみ閲覧可能機能 (Firebaseからログイン状態を取得)*/
+firebase.getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+      unsubscribe();
+      resolve(user);
+    }, reject);
+  });
+};
+/*ここまで*/
 
+firebase.initializeApp(firebaseConfig);
 
-firebase.initializeApp(Config);
-
-export const db = firebase.firestore()
-export const auth = firebase.auth()
-
+export const db = firebase.firestore();
+export const auth = firebase.auth();

@@ -4,8 +4,14 @@
     <router-link to="/article">Article</router-link>
     
     <div id="nav">
-      <!-- <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> -->
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link to="/signup">Sign up</router-link> |
+      <router-link to="/signin">Sign in</router-link> |
+      <router-link to="/signout">Sign out</router-link> |
+      <router-link to="/default">Default</router-link> |
+      <router-link to="/mypage">Mypage</router-link> | 
+      <router-link to="/create">Create</router-link>
     </div>
     
 <main>
