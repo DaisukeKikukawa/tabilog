@@ -1,21 +1,23 @@
 <template>
   <div>
-    <div v-for="post in posts" :key="post.id">
-      <h3>{{ post.title }}</h3>
-      <img :src="post.picture2" width="300" />
-      <p>{{ post.content }}</p>
-      <p>{{ post.createdAt | moment }}</p>
-      <p v-if="users.displayName">Created by {{ users.displayName }}</p>
-      <p v-else>Created by unknown user.</p>
-      <!-- <p>Id{{ post.uid }}</p> -->
-      <!-- <p>{{ index }}</p> -->
-      <button @click="showBtns = !showBtns">
-        <fa icon="ellipsis-v" />
-      </button>
-      <div v-if="showBtns" class="controls">
-        <li v-on:click="deletePost" style="color: red">delete</li>
+    <div class="container">
+      <div v-for="post in posts" :key="post.id" class="box">
+        <h3>{{ post.title }}</h3>
+        <img :src="post.picture2" width="300" />
+        <p>{{ post.content }}</p>
+        <p>{{ post.createdAt | moment }}</p>
+        <p v-if="users.displayName">Created by {{ users.displayName }}</p>
+        <p v-else>Created by unknown user.</p>
+        <!-- <p>Id{{ post.uid }}</p> -->
+        <!-- <p>{{ index }}</p> -->
+        <button @click="showBtns = !showBtns">
+          <fa icon="ellipsis-v" />
+        </button>
+        <div v-if="showBtns" class="controls">
+          <li v-on:click="deletePost" style="color: red">delete</li>
+        </div>
+        <hr />
       </div>
-      <hr />
     </div>
   </div>
 </template>
@@ -96,3 +98,19 @@ export default {
   // }
 }
 </script>
+<style scoped>
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+}
+
+.box {
+  width: 40%;
+  height: 40%;
+  padding-right: 10px;
+}
+</style>
