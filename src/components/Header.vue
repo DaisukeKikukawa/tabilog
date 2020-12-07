@@ -4,7 +4,7 @@
     <router-link to="/about">About</router-link>
     <!-- ログイン状態で表示 -->
     <div v-if="currentUser">
-      <router-link to="/mypage" class="mypage_link">Mypage</router-link>
+      <a @click="mypage" class="mypage_link">Mypage</a>
       <router-link to="/signout" class="signout_link">Sign out</router-link>
     </div>
     <!-- ログイン前の状態で表示 -->
@@ -33,6 +33,14 @@ export default {
         this.currentUser = null;
       }
     });
+  },
+  methods: {
+    mypage() {
+      this.$router.push({
+        name: "mypage",
+        params: { uid: this.currentUser.uid }
+      });
+    }
   }
 };
 </script>
