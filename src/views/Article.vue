@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div v-for="post in posts" :key="post.id">
+  <div class="container">
+    <div v-for="post in posts" :key="post.id" class="box">
       <h3>{{ post.title }}</h3>
       <img :src="post.picture2" width="500" />
       <p>{{ post.content }}</p>
@@ -9,13 +9,12 @@
       <p v-else>Created by unknown user.</p>
       <!-- <p>Id{{ post.uid }}</p> -->
       <!-- <p>{{ index }}</p> -->
-      <button @click="showBtns = !showBtns">
+      <!-- <button @click="showBtns = !showBtns">
         <fa icon="ellipsis-v" />
-      </button>
-      <div v-if="showBtns" class="controls">
+      </button> -->
+      <!-- <div v-if="showBtns" class="controls">
         <li v-on:click="deletePost" style="color: red">delete</li>
-      </div>
-      <hr />
+      </div> -->
     </div>
   </div>
 </template>
@@ -96,3 +95,21 @@ export default {
   // }
 }
 </script>
+<style scoped>
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+}
+
+.box {
+  width: 40%;
+  height: 40%;
+  padding-right: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+}
+</style>
