@@ -32,10 +32,10 @@
 </template>
 <script>
 // import firebase from "firebase";
-import { auth } from "@/firebase";
-import { db } from "@/firebase";
+import { auth } from "@/firebase"
+import { db } from "@/firebase"
 // import GoogleMap from "../components/GoogleMap";
-let GoogleMapsApiLoader = require("google-maps-api-loader");
+let GoogleMapsApiLoader = require("google-maps-api-loader")
 
 export default {
   data() {
@@ -47,85 +47,86 @@ export default {
       marker: [],
       currentlatlng: {
         lat: 35.6809591,
-        lng: 139.7673068,
+        lng: 139.7673068
       },
-      createUser: {},
-    };
+      createUser: {}
+    }
   },
   // components: {
   //   GoogleMap
   // },
   created() {
-    auth.onAuthStateChanged((user) => {
-      this.currentUser = user;
-    });
+    auth.onAuthStateChanged(user => {
+      this.currentUser = user
+    })
   },
   firestore() {
     return {
-      createUser: db.collection("users").doc(this.$route.params.uid),
-    };
+      createUser: db.collection("users").doc(this.$route.params.uid)
+    }
   },
   methods: {
     initMap: function() {
-      this.geocoder = new this.google.maps.Geocoder();
+      this.geocoder = new this.google.maps.Geocoder()
       this.map = new this.google.maps.Map(document.getElementById("map"), {
         center: this.currentlatlng,
-        zoom: 15,
-      });
+        zoom: 15
+      })
     },
     // 検索、マーカーの設置
     codeAddress: function() {
-      let inputAddress = document.getElementById("inputAddress").value;
+      let inputAddress = document.getElementById("inputAddress").value
       // 地図の移動や座標の取得
       this.geocoder.geocode({ address: inputAddress }, (results, status) => {
         if (status == "OK") {
-          let latitude = results[0].geometry.location.lat();
-          let longitude = results[0].geometry.location.lng();
-          this.currentlatlng.lat = latitude;
-          this.currentlatlng.lng = longitude;
-          let latlng = new this.google.maps.LatLng(latitude, longitude);
+          let latitude = results[0].geometry.location.lat()
+          let longitude = results[0].geometry.location.lng()
+          this.currentlatlng.lat = latitude
+          this.currentlatlng.lng = longitude
+          let latlng = new this.google.maps.LatLng(latitude, longitude)
 
           // マーカー設置
           this.marker = new this.google.maps.Marker({
             map: this.map,
             position: {
               lat: this.currentlatlng.lat,
-              lng: this.currentlatlng.lng,
+              lng: this.currentlatlng.lng
             },
-            animation: this.google.maps.Animation.DROP,
-          });
+            animation: this.google.maps.Animation.DROP
+          })
 
           // googleMapの中心座標をずらす
-          this.map.setCenter(latlng);
+          this.map.setCenter(latlng)
         } else {
-          alert("該当する結果がありませんでした：" + status);
+          alert("該当する結果がありませんでした：" + status)
         }
-      });
+      })
     },
     publish() {
-      const ref = db.collection("posts").doc();
-      const date = this.$date(new Date());
-      ref.set({
-        createUsername: this.createUser.displayName,
-        createdAt: date,
-        uid: this.currentUser.uid,
-        id: ref.id,
-        lat: this.currentlatlng.lat,
-        lng: this.currentlatlng.lng,
-      });
-      // .then(() => {
-      //   this.$router.push("/post/" + this.currentUser.uid);
-      //   alert("The post got published!");
-      // });
-    },
+      const ref = db.collection("posts").doc()
+      const date = this.$date(new Date())
+      ref
+        .set({
+          createUsername: this.createUser.displayName,
+          createdAt: date,
+          uid: this.currentUser.uid,
+          id: ref.id,
+          lat: this.currentlatlng.lat,
+          lng: this.currentlatlng.lng
+        })
+        .then(() => {
+          this.$router.push("/create/" + this.currentUser.uid)
+          alert("The post got published!")
+        })
+    }
   },
   async mounted() {
     this.google = await GoogleMapsApiLoader({
-      apiKey: "AIzaSyCgHlOo-1ywOyvD5AIjjmuSQg5RFtzTlXw",
-    });
-    this.initMap();
-  },
-};
+      apiKey: "AIzaSyCgHlOo-1ywOyvD5AIjjmuSQg5RFtzTlXw"
+    })
+    this.initMap()
+  }
+}
 </script>
 <style scoped>
 body {
