@@ -81,26 +81,26 @@
       <div class="profile-container">
         <div class="member1">
           <div class="image__member">
-            <img src="/images/edit5.JPG" class="image" />
+            <img src="/images/profile.jpg" class="image" />
           </div>
           <span class="member1-name">Hiroshi Tsuji</span>
-          <h5 class="member1-text">message1</h5>
+          <h5 class="member1-text">ぼうっとしたいです。</h5>
         </div>
 
         <div class="member2">
           <div class="image__member">
-            <img src="/images/edit5.JPG" class="image" />
+            <img src="/images/profile2.JPG" class="image" />
           </div>
           <span class="member2-name">Daisuke Kikukawa</span>
-          <h5 class="member2-text">message2</h5>
+          <h5 class="member2-text">サッカー好きです！</h5>
         </div>
 
         <div class="member3">
           <div class="image__member">
-            <img src="/images/edit5.JPG" class="image" />
+            <img src="/images/profile3.JPG" class="image" />
           </div>
           <span class="member3-name">Shiro Wakabayashi</span>
-          <h5 class="member3-text">message3</h5>
+          <h5 class="member3-text">晩酌が至福のひと時です。</h5>
         </div>
 
         <!-- <div class="member4">
@@ -310,7 +310,7 @@ h3 {
 }
 
 .image__member {
-  height: 5rem;
+  height: 10rem;
   /* flex: 1 1 5rem; */
 }
 
