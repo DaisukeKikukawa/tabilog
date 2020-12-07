@@ -1,7 +1,5 @@
 <template>
   <div>
-    <router-link tag="button" to="/map">Map</router-link>
-    <router-view />
     <!-- First block Start -->
     <section id="first-block">
       <div class="title-container">
@@ -126,28 +124,28 @@ export default {
       root: null,
       rootMargin: "0px 0px -150px",
       threshold: 0
-    };
-    const vision1 = document.querySelectorAll(".vision1");
-    vision1.forEach(target => this.onIntersect(target, options));
-    const vision2 = document.querySelectorAll(".vision2");
-    vision2.forEach(target => this.onIntersect(target, options));
+    }
+    const vision1 = document.querySelectorAll(".vision1")
+    vision1.forEach(target => this.onIntersect(target, options))
+    const vision2 = document.querySelectorAll(".vision2")
+    vision2.forEach(target => this.onIntersect(target, options))
   },
 
   methods: {
     onIntersect(target, options = {}) {
-      const observer = new IntersectionObserver(this.addShowClass, options);
+      const observer = new IntersectionObserver(this.addShowClass, options)
       // 監視したい要素をobserveする。
-      observer.observe(target);
+      observer.observe(target)
     },
     addShowClass(entries) {
       for (const e of entries) {
         if (e.isIntersecting) {
-          e.target.classList.add("show");
+          e.target.classList.add("show")
         }
       }
     }
   }
-};
+}
 </script>
 
 <style scoped>
