@@ -2,6 +2,8 @@
   <div id="nav">
     <router-link to="/">Top</router-link>
     <router-link to="/about">About</router-link>
+    <router-link to="/create">Create</router-link>
+    <router-link to="/article">Article</router-link>
     <!-- ログイン状態で表示 -->
     <div v-if="currentUser">
       <a @click="mypage" class="mypage_link">Mypage</a>

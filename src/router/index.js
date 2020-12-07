@@ -1,5 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import Create from '../views/Create.vue';
+import Article from "../views/Article.vue"
 import Map from "../components/Map.vue";
 import Top from "../views/Top.vue";
 import firebase from "firebase";
@@ -28,6 +30,16 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue")
+  },
+  {
+    path: '/create',
+    name: 'Create',
+    component: Create
+  },
+  {
+    path: '/article',
+    name: 'Article',
+    component: Article
   },
   {
     path: "/map",
