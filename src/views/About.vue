@@ -46,9 +46,9 @@
             <br />
             決めてきた人も多いのではないかと思いました。
             <br />
-            そこで、1人1人の旅の思い出を記録し、個性豊かなガイドブックを1人1人が作る。
+            そこで、1人1人の旅の思い出を記録し、ガイド本を作る。
             <br />
-            いわば「面白い人・体験」が集まったプラットフォームで次の旅の計画をワクワクして
+            面白い人・体験が集まったプラットフォームで次の旅の計画をワクワクして
             <br />
             決められるサービスを作ろうと思ってできたもの
             <br />
@@ -105,13 +105,13 @@
           <h5 class="member3-text">message3</h5>
         </div>
 
-        <div class="member4">
+        <!-- <div class="member4">
           <div class="image__member">
             <img src="/images/edit5.JPG" class="image" />
           </div>
           <span class="member4-name">Takahiro Orihara</span>
           <h5 class="member4-text">message4</h5>
-        </div>
+        </div> -->
       </div>
     </section>
     <!-- Thire block End -->
@@ -358,7 +358,7 @@ h3 {
   text-align: center;
 }
 
-.member4 {
+/* .member4 {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -373,6 +373,234 @@ h3 {
 
 .member4-text {
   text-align: center;
-}
+} */
 /* Third block End */
+
+/* スマートフォンの場合 */
+@media (max-width: 670px) {
+  /* First block */
+  #first-block {
+    background-color: #f5da81;
+  }
+
+  .title-container {
+    text-align: center;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 40px;
+    font-family: serif;
+    color: #ffbf00;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-family: serif;
+    color: #000;
+  }
+
+  .property-title {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 30px;
+  }
+
+  .property-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .property1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 50%;
+  }
+
+  .image__box {
+    height: 10rem;
+    /* flex: 1 1 5rem; */
+  }
+
+  .image {
+    object-fit: contain;
+    height: 100%;
+  }
+
+  .property1-text {
+    font-size: 10px;
+    padding: 10px;
+    flex: 1 0 0;
+  }
+
+  .property2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 50%;
+  }
+
+  .property2-text {
+    font-size: 10px;
+    padding: 10px;
+    flex: 1 0 0;
+  }
+  /* First block End */
+
+  /* Second block Start  */
+  #second-block {
+    background-color: #81f7f3;
+  }
+
+  .vision-container {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    width: 100%;
+  }
+
+  .vision1 {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  .vision1-text {
+    font-size: 10px;
+    width: 100%;
+  }
+
+  .vision2 {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  .vision2-text {
+    font-size: 10px;
+    width: 100%;
+  }
+
+  .show {
+    opacity: 1;
+    transition-duration: 1000ms;
+    transform: translateY(0);
+  }
+  /* Second block End */
+
+  /* Third block Start  */
+  #third-block {
+    background-color: #6bb6f8;
+  }
+
+  .profile-title {
+    margin: 0;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 30px;
+  }
+
+  .profile-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: flex-end;
+    width: 100%;
+  }
+
+  .member1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 25%;
+  }
+
+  .image__member {
+    height: 5rem;
+    /* flex: 1 1 5rem; */
+  }
+
+  .member1-name {
+    text-align: center;
+  }
+
+  .member1-text {
+    text-align: center;
+  }
+
+  .member2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 25%;
+  }
+
+  .member2-name {
+    text-align: center;
+  }
+
+  .member2-text {
+    text-align: center;
+  }
+
+  .member3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 25%;
+  }
+
+  .member3-name {
+    text-align: center;
+  }
+
+  .member3-text {
+    text-align: center;
+  }
+
+  /* .member4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 25%;
+  }
+
+  .member4-name {
+    text-align: center;
+  }
+
+  .member4-text {
+    text-align: center;
+  } */
+  /* Third block End */
+}
 </style>

@@ -26,7 +26,7 @@
 
     <!-- Fourth-block Start -->
     <section id="fourth-block">
-      <h3 class="fourth-sentence">
+      <!-- <h3 class="fourth-sentence">
         書く上での心配はいりません。
         <br />
         環境は私たちが用意しているので必要なのは
@@ -35,7 +35,7 @@
       </h3>
       <div class="image__box">
         <img src="/images/AdobeStock_337859550.jpeg" class="image" />
-      </div>
+      </div> -->
     </section>
     <!-- Fourth-block End -->
 
@@ -64,8 +64,8 @@ export default {
     secondSentence.forEach(target => this.onIntersect(target, options));
     const thirdSentence = document.querySelectorAll(".third-sentence");
     thirdSentence.forEach(target => this.onIntersect(target, options));
-    const fourthSentence = document.querySelectorAll(".fourth-sentence");
-    fourthSentence.forEach(target => this.onIntersect(target, options));
+    // const fourthSentence = document.querySelectorAll(".fourth-sentence");
+    // fourthSentence.forEach(target => this.onIntersect(target, options));
     const fifthSentence1 = document.querySelectorAll(".fifth-sentence1");
     fifthSentence1.forEach(target => this.onIntersect(target, options));
     const fifthSentence2 = document.querySelectorAll(".fifth-sentence2");
@@ -178,49 +178,53 @@ export default {
 
 /* Fourth block Start*/
 #fourth-block {
+  background-image: url("/images/edit6.JPG");
+  background-size: cover;
+  width: 100%;
+  height: 1200px;
   /* position: relative; */
-  background-image: url("/images/AdobeStock_141701394.jpeg");
+  /* background-image: url("/images/AdobeStock_141701394.jpeg");
   background-size: cover;
   background-position-y: center;
   width: 100%;
   height: 1200px;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
 }
 
-.fourth-sentence {
-  /* position: absolute;
-  top: 5%;
+/* .fourth-sentence { */
+/* position: absolute;
+  top: 10%;
   left: 41%; */
-  color: #606060;
+/* color: #606060;
   text-align: left;
   font-size: 50px;
   font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
     "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "Osaka", sans-serif;
   opacity: 0;
-  transform: translateY(50px);
-}
+  transform: translateY(50px); */
+/* } */
 
-.image__box {
-  /* position: absolute;
+/* .image__box { */
+/* position: absolute;
   top: 28%;
-  left: 65%; */
-  height: 20rem;
-  transform: skew(-1deg, 3deg);
-  /* flex: 1 1 5rem; */
-}
+  left: 60%; */
+/* height: 15rem;
+  transform: skew(-1deg, 3deg); */
+/* flex: 1 1 5rem; */
+/* } */
 
-.image {
+/* .image {
   object-fit: contain;
   height: 100%;
-}
+} */
 /* Fourth block End*/
 
 /* Fifth block Start */
 #fifth-block {
-  position: relative;
+  /* position: relative; */
   background-image: url("/images/AdobeStock_341153617.jpeg");
   background-size: cover;
   background-position-y: center;
@@ -531,43 +535,52 @@ export default {
 
   /* Fourth block Start*/
   #fourth-block {
+    background-image: url("/images/edit6.JPG");
+    background-size: cover;
+    width: 100%;
+    height: 250px;
     /* position: relative; */
-    background-image: url("/images/AdobeStock_141701394.jpeg");
+    /* background-image: url("/images/AdobeStock_141701394.jpeg");
     background-size: cover;
     background-position: center;
     width: 100%;
     height: 250px;
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
-    align-items: center;
+    align-items: baseline; */
+    /* align-content: flex-end; */
   }
 
-  .fourth-sentence {
-    /* position: absolute;
+  /* .fourth-sentence { */
+  /* position: absolute;
     top: 10%;
     left: 41%; */
-    color: #606060;
+  /* color: #606060;
+    align-self: center;
     text-align: left;
-    font-size: 10px;
+    font-size: 1rem;
+
     font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
       "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "Osaka", sans-serif;
     opacity: 0;
     transform: translateY(50px);
-  }
+  } */
 
-  .image__box {
-    /* position: absolute;
+  /* .image__box { */
+  /* position: absolute;
     top: 33%;
     left: 62%; */
+  /* align-self: center;
     height: 3.5rem;
-    transform: skew(-1deg, 3deg);
-    /* flex: 1 1 5rem; */
-  }
+    transform: skew(-1deg, 3deg); */
+  /* flex: 1 1 5rem; */
+  /* } */
 
-  .image {
+  /* .image {
     object-fit: contain;
     height: 100%;
-  }
+  } */
   /* Fourth block End*/
 
   /* Fifth block Start */
@@ -593,9 +606,6 @@ export default {
     font-size: 15px;
     font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
       "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "Osaka", sans-serif;
-
-    opacity: 0;
-    transform: translateY(50px);
   }
 
   .fifth-sentence2 {
@@ -607,19 +617,15 @@ export default {
     font-size: 25px;
     font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
       "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "Osaka", sans-serif;
-    opacity: 0;
-    transform: translateY(50px);
   }
 
   .fifth-sentence3 {
     color: #0431b4;
-    text-align: left;
+    text-align: center;
     font-size: 5px;
     font-family: "Meiryo UI", "Meiryo", "ヒラギノ角ゴ Pro W3",
       "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "Osaka", sans-serif;
     padding: 10px;
-    /* opacity: 0;
-    transform: translateY(50px); */
   }
 
   .show {
