@@ -3,7 +3,9 @@
     <h1>My Page</h1>
     <div>
       <!-- <p>{{ users.picture }}</p> -->
-      <img :src="users.picture" width="500" />
+      <img :src="users.picture" class="image" />
+
+      <!-- <img :src="users.picture" width="500" /> -->
       <p>ユーザー名：{{ users.displayName }}</p>
       <p>年齢：{{ users.age }}</p>
       <p>性別：{{ users.gender }}</p>
@@ -19,15 +21,15 @@
 </template>
 
 <script>
-import { db } from "@/firebase";
-import { auth } from "@/firebase";
+import { db } from "@/firebase"
+import { auth } from "@/firebase"
 
 export default {
   name: "mypage",
   data() {
     return {
-      users: [],
-    };
+      users: []
+    }
   },
   // firestore() {
   //   return {
@@ -35,22 +37,37 @@ export default {
   //   };
   // },
   created() {
-    const id = auth.currentUser.uid;
-    console.log(id);
+    const id = auth.currentUser.uid
+    console.log(id)
     db.collection("users")
       .doc(id)
       .get()
-      .then((snapshot) => {
-        this.users = snapshot.data();
-      });
+      .then(snapshot => {
+        this.users = snapshot.data()
+      })
   },
   methods: {
     toEditpage() {
       this.$router.push({
         name: "edit",
-        params: { uid: this.$route.params.uid },
-      });
-    },
-  },
-};
+        params: { uid: this.$route.params.uid }
+      })
+    }
+  }
+}
 </script>
+
+<style scoped>
+.image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* .image {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+} */
+</style>

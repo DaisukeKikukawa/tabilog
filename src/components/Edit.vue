@@ -4,7 +4,7 @@
     <div>
       <h3>プロフィール画像</h3>
       <upload v-model="picture" />
-      <img :src="picture" width="500" />
+      <img :src="picture" class="image" />
     </div>
     <div>
       <h3>ユーザー名</h3>
@@ -44,14 +44,14 @@
 </template>
 
 <script>
-import { db } from "@/firebase";
-import { auth } from "@/firebase";
-import Upload from "../components/Upload.vue";
+import { db } from "@/firebase"
+import { auth } from "@/firebase"
+import Upload from "../components/Upload.vue"
 
 export default {
   name: "edit",
   components: {
-    Upload,
+    Upload
   },
   data() {
     return {
@@ -64,17 +64,17 @@ export default {
       instagramUrl: "",
       users: [],
       currentUser: null,
-      createUser: null,
-    };
+      createUser: null
+    }
   },
   created() {
-    auth().onAuthStateChanged((user) => {
+    auth().onAuthStateChanged(user => {
       if (user) {
-        this.currentUser = user;
+        this.currentUser = user
       } else {
-        this.currentUser = null;
+        this.currentUser = null
       }
-    });
+    })
   },
   methods: {
     addUserAccount() {
@@ -88,22 +88,22 @@ export default {
           gender: this.gender,
           selfIntroduction: this.selfIntroduction,
           twitterUrl: this.twitterUrl,
-          instagramUrl: this.instagramUrl,
+          instagramUrl: this.instagramUrl
         })
         .then(() => {
-          console.log("users");
-          alert("編集に成功!");
+          console.log("users")
+          alert("編集に成功!")
           this.$router.push({
             name: "mypage",
-            params: { uid: this.$route.params.uid },
-          });
-        });
-    },
-  },
-};
+            params: { uid: this.$route.params.uid }
+          })
+        })
+    }
+  }
+}
 </script>
 
-<style>
+<style scoped>
 * {
   box-sizing: border-box;
 }
@@ -118,5 +118,12 @@ body {
   font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Meiryo",
     "メイリオ", "Osaka", "MS PGothic", arial, helvetica, clean, sans-serif;
   line-height: 1.5;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 </style>
